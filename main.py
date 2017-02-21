@@ -12,6 +12,8 @@ def PrepareFile(fp, shape):
 
     return Board(shape, shape, round((shape / 2.) - 1), vehicles)
 
+    board = PrepareFile(fp, shape)
+
 
 class Board(object):
     """
