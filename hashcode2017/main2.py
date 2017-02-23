@@ -26,15 +26,14 @@ def Preparefile(fp):
                 for i in range(0, V):
                     videos_list[i] = int(videos[i])
                     counter += 1
+                continue
 
             else:
                 if int(videos[0]) < 100:
                     temp.append(videos[0])
-                    print end_id, "id"
-                    print videos[0]
+                    endpoints[end_id - 1] = temp
                     continue
 
-                endpoints[end_id] = temp
                 temp = []
                 end_id += 1
 
