@@ -1,6 +1,8 @@
 import csv
+from operator import itemgetter
+from collections import OrderedDict
 
-fp = "trending_day.in
+fp = "videos_worth_spreading.in"
 
 def Preparefile(fp):
     videos_list = {}
@@ -25,16 +27,18 @@ def Preparefile(fp):
                     videos_list[i] = int(videos[i])
                 break
 
+    sorted_dict = sorted(videos_list.items(), key=lambda x:x[1])
+
     servers = {}
     server_id = 0
     mbs = 0
     temp_vid = []
-    for video in videos_list:
+    for videos in sorted_dict:
         if server_id > (C - 1):
             break
-        if mbs + videos_list[video] < X:
-            mbs += videos_list[video]
-            temp_vid.append(video)
+        if mbs + videos[1] < X:
+            mbs += videos[1]
+            temp_vid.append(videos[0])
             continue
         else:
             mbs = 0
